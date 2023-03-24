@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    text-align: center;
+    padding: 25px 100px;
+}
+
+.container {
+    height: 1000px;
+    width: 1000px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.row {
+    display: flex;
+    flex-grow: 1;
+    gap: 5px;
+}
+
+.box {
+    flex-grow: 1;
+    border: black 2px solid;
+}
+
+.hover {
+    background-color: lightcoral;
+}
+
+button{
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
