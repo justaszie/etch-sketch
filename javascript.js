@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 // Initialize the grid
 createGrid(container);
+let currentRGBValue = 255;
 
 // Add event listener - when user clicks on new grid button, they enter a number and we reinitialize the grid with that number
 const newGridButton = document.querySelector("button");
@@ -8,6 +9,7 @@ newGridButton.addEventListener('click', () => {
     let newNumber = prompt("Please enter new number of boxes");
     container.innerHTML = "";
     createGrid(container, parseInt(newNumber));
+    currentRGBValue = 255;
 })
 
 function createGrid(container, numberOfBoxes = 16) {
@@ -25,10 +27,20 @@ function createGrid(container, numberOfBoxes = 16) {
             box.addEventListener('mouseover',() => {
                 //Instead of class, we will dynamically calculate the background now
                 // box.classList.add('hover');
+                /* Now, instead of random rgb, we will add 10% of black on each pass
                 let redValue = Math.floor(Math.random() * 256);
                 let greenValue = Math.floor(Math.random() * 256);
                 let blueValue = Math.floor(Math.random() * 256);
                 box.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+                 */
+                if (currentRGBValue === 255){
+                    currentRGBValue = 229.5;
+                }
+                else if (currentRGBValue === 0) {}
+                else {
+                    currentRGBValue -= 25.5;
+                }
+                box.style.backgroundColor = `rgb(${currentRGBValue}, ${currentRGBValue}, ${currentRGBValue})`;
             });
         }
     }
